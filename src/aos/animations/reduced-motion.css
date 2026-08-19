@@ -1,0 +1,44 @@
+/* =========================================================
+   AOS — Reduced motion accessibility
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .aos {
+    opacity: 1;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .apex-float,
+  .apex-float-slow,
+  .apex-pulse-soft,
+  .apex-gradient-shift,
+  .apex-card-glow,
+  .apex-orb-one,
+  .apex-orb-two,
+  .apex-orb-sparkle {
+    animation: none !important;
+  }
+
+  .apex-btn:hover,
+  .apex-btn-outline:hover,
+  .apex-feature-bullet:hover {
+    transform: none;
+    animation: none;
+  }
+
+  .apex-btn:hover::after,
+  .apex-btn:hover .apex-btn-arrow {
+    animation: none;
+  }
+
+  .apex-field::before,
+  .apex-field-label,
+  .apex-field-icon,
+  .apex-field-input,
+  .login-checkbox-marker,
+  .login-checkbox-marker::after {
+    transition: none !important;
+  }
+}
