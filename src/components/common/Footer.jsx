@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import clubApexLogo from "../../assets/images/brand/club-apex-logo.png";
+import clubApexLogo from "../../assets/hero.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

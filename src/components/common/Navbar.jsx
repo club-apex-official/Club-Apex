@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import clubApexLogo from "../../assets/images/brand/club-apex-logo.png";
-
+import clubApexLogo from "../../assets/hero.png";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
