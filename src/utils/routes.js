@@ -15,6 +15,8 @@ export const ROUTES = {
 
   RECRUITMENT: "/recruitment",
 
+  RECRUITMENT_SUCCESS: "/recruitment/success",
+
   ABOUT: "/about",
 
   CONTACT: "/contact",

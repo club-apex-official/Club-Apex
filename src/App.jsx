@@ -23,6 +23,8 @@ import ActivityFeed from "./pages/ActivityFeed";
 import Recruitment from "./pages/Recruitment";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import RecruitmentSuccess from "./pages/RecruitmentSuccess";
+
 
 // =========================================================
 // AUTHENTICATION PAGES
@@ -123,6 +125,12 @@ function App() {
             element={<Contact />}
           />
 
+          {/*Success */}
+          <Route
+            path={ROUTES.RECRUITMENT_SUCCESS}
+            element={<RecruitmentSuccess />}
+          />
+          
           {/* =================================================
               AUTHENTICATION
               ================================================= */}
