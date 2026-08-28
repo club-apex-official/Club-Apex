@@ -1,0 +1,372 @@
+/* =========================================================
+   AOS — Floating label outlined field
+   Single border: full pill when idle, U-shape when active
+   ========================================================= */
+
+.apex-field {
+  --field-radius: 20px;
+  --field-border-idle: rgb(97 45 83 / 0.22);
+  --field-border-hover: rgb(133 57 83 / 0.38);
+  --field-border-active: var(--color-primary);
+  --field-label-bg: rgb(255 255 255 / 0.78);
+
+  position: relative;
+  display: block;
+}
+
+/* One border layer — no ::after, no notch */
+.apex-field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--field-radius);
+  border: 1.5px solid var(--field-border-idle);
+  pointer-events: none;
+  z-index: 1;
+  transition:
+    border-color 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-width 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apex-field:hover::before {
+  border-color: var(--field-border-hover);
+}
+
+/* Active: hide top + right — label rests on the top edge */
+.apex-field:focus-within::before,
+.apex-field:has(.apex-field-input:not(:placeholder-shown))::before {
+  border-width: 0 0 2px 2px;
+  border-color: var(--field-border-active);
+}
+
+.apex-field-input {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  min-height: 60px;
+  margin: 0;
+  padding: 24px var(--space-5) 14px calc(var(--space-4) + 34px);
+  background: transparent;
+  color: var(--color-dark);
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: var(--field-radius);
+  transition:
+    background 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apex-field-input::placeholder {
+  color: transparent;
+}
+
+.apex-field-input:focus {
+  background: rgb(255 255 255 / 0.55);
+}
+
+/* Label — inside when idle, on top border line when active */
+.apex-field-label {
+  position: absolute;
+  left: calc(var(--space-4) + 34px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 6px;
+  margin-left: -6px;
+  color: rgb(97 45 83 / 0.58);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  pointer-events: none;
+  transform-origin: left center;
+  transition:
+    top 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    font-size 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    font-weight 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+  max-width: calc(100% - 80px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 3;
+}
+
+.apex-field-icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(97 45 83 / 0.52);
+  pointer-events: none;
+  z-index: 2;
+  transition:
+    color 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apex-field-action {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: rgb(97 45 83 / 0.55);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 3;
+  transition:
+    background 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apex-field-action:hover {
+  background: rgb(133 57 83 / 0.08);
+  color: var(--color-primary);
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: 0 6px 14px rgb(133 57 83 / 0.12);
+}
+
+.apex-field-action:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.apex-field-action:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Floated: label sits ON the top border line */
+.apex-field-input:focus ~ .apex-field-label,
+.apex-field-input:not(:placeholder-shown) ~ .apex-field-label {
+  top: 0;
+  transform: translateY(-50%);
+  background: var(--field-label-bg);
+  color: var(--color-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0 8px;
+  margin-left: -8px;
+}
+
+.apex-field-input:focus ~ .apex-field-icon,
+.apex-field-input:not(:placeholder-shown) ~ .apex-field-icon {
+  color: var(--color-primary);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.apex-field-input:focus,
+.apex-field-input:not(:placeholder-shown) {
+  padding-top: 26px;
+  padding-bottom: 12px;
+}
+
+/* ---------------------------------------------------------
+   APEX FIELD — RESPONSIVE
+   --------------------------------------------------------- */
+
+/* Tablet (≤ 900px) */
+@media (max-width: 900px) {
+  .apex-field {
+    --field-radius: 18px;
+  }
+
+  .apex-field-input {
+    min-height: 58px;
+    font-size: 14.5px;
+    padding: 22px var(--space-4) 14px calc(var(--space-4) + 32px);
+  }
+
+  .apex-field-label {
+    left: calc(var(--space-4) + 32px);
+    font-size: 14.5px;
+  }
+
+  .apex-field-icon {
+    left: calc(var(--space-4) - 2px);
+  }
+
+  .apex-field-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .apex-field-action {
+    right: calc(var(--space-3) - 2px);
+    width: 38px;
+    height: 38px;
+  }
+
+  .apex-field-input:focus,
+  .apex-field-input:not(:placeholder-shown) {
+    padding-top: 24px;
+    padding-bottom: 12px;
+  }
+
+  .apex-field-input:focus ~ .apex-field-label,
+  .apex-field-input:not(:placeholder-shown) ~ .apex-field-label {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* Mobile (≤ 640px) */
+@media (max-width: 640px) {
+  .apex-field {
+    --field-radius: 16px;
+  }
+
+  .apex-field::before {
+    border-width: 1.5px;
+  }
+
+  .apex-field:focus-within::before,
+  .apex-field:has(.apex-field-input:not(:placeholder-shown))::before {
+    border-width: 0 0 1.8px 1.8px;
+  }
+
+  .apex-field-input {
+    min-height: 54px;
+    font-size: 14px;
+    padding:
+      20px
+      calc(var(--space-3) + 38px)
+      12px
+      calc(var(--space-3) + 30px);
+  }
+
+  .apex-field-label {
+    left: calc(var(--space-3) + 30px);
+    font-size: 14px;
+    max-width: calc(100% - 120px);
+  }
+
+  .apex-field-icon {
+    left: calc(var(--space-3) + 2px);
+  }
+
+  .apex-field-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .apex-field-action {
+    right: calc(var(--space-3) - 2px);
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .apex-field-action svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .apex-field-input:focus,
+  .apex-field-input:not(:placeholder-shown) {
+    padding-top: 22px;
+    padding-bottom: 12px;
+  }
+
+  .apex-field-input:focus ~ .apex-field-label,
+  .apex-field-input:not(:placeholder-shown) ~ .apex-field-label {
+    top: 0;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0 7px;
+  }
+}
+
+/* Compact mobile (≤ 420px) */
+@media (max-width: 420px) {
+  .apex-field-input {
+    min-height: 52px;
+    font-size: 13.5px;
+    padding:
+      18px
+      calc(var(--space-3) + 36px)
+      12px
+      calc(var(--space-3) + 28px);
+  }
+
+  .apex-field-label {
+    left: calc(var(--space-3) + 28px);
+    font-size: 13.5px;
+    max-width: calc(100% - 110px);
+  }
+
+  .apex-field-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .apex-field-action {
+    width: 34px;
+    height: 34px;
+  }
+
+  .apex-field-action svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .apex-field-input:focus,
+  .apex-field-input:not(:placeholder-shown) {
+    padding-top: 20px;
+    padding-bottom: 12px;
+  }
+
+  .apex-field-input:focus ~ .apex-field-label,
+  .apex-field-input:not(:placeholder-shown) ~ .apex-field-label {
+    font-size: 10px;
+    padding: 0 6px;
+  }
+}
+
+/* Large desktop (≥ 1440px) */
+@media (min-width: 1440px) {
+  .apex-field {
+    --field-radius: 22px;
+  }
+
+  .apex-field-input {
+    min-height: 64px;
+    font-size: 16px;
+    padding: 26px var(--space-6) 16px calc(var(--space-5) + 36px);
+  }
+
+  .apex-field-label {
+    left: calc(var(--space-5) + 36px);
+    font-size: 16px;
+  }
+
+  .apex-field-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .apex-field-action {
+    right: calc(var(--space-4) - 2px);
+    width: 44px;
+    height: 44px;
+  }
+}

@@ -1,0 +1,98 @@
+/* =========================================================
+   AOS — Scroll-triggered reveal animations
+   ========================================================= */
+
+.aos {
+  --aos-duration: 700ms;
+  --aos-delay: 0ms;
+  --aos-easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+  opacity: 0;
+  transition-timing-function: var(--aos-easing);
+  transition-duration: var(--aos-duration);
+  transition-delay: var(--aos-delay);
+  transition-property:
+    opacity,
+    transform,
+    filter;
+  will-change: opacity, transform;
+}
+
+.aos.aos-animate {
+  opacity: 1;
+}
+
+/* Fade + Scale (from center) */
+
+.aos-fade-center {
+  transform: scale(0.94);
+  filter: blur(6px);
+}
+
+.aos-fade-center.aos-animate {
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Fade + Directions */
+
+.aos-fade-up {
+  transform: translate3d(0, 28px, 0);
+}
+
+.aos-fade-up.aos-animate {
+  transform: translate3d(0, 0, 0);
+}
+
+.aos-fade-down {
+  transform: translate3d(0, -28px, 0);
+}
+
+.aos-fade-down.aos-animate {
+  transform: translate3d(0, 0, 0);
+}
+
+.aos-fade-left {
+  transform: translate3d(36px, 0, 0);
+}
+
+.aos-fade-left.aos-animate {
+  transform: translate3d(0, 0, 0);
+}
+
+.aos-fade-right {
+  transform: translate3d(-36px, 0, 0);
+}
+
+.aos-fade-right.aos-animate {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Zoom */
+
+.aos-zoom-in {
+  transform: scale(0.88);
+}
+
+.aos-zoom-in.aos-animate {
+  transform: scale(1);
+}
+
+.aos-zoom-out {
+  transform: scale(1.06);
+}
+
+.aos-zoom-out.aos-animate {
+  transform: scale(1);
+}
+
+/* Flip */
+
+.aos-flip-up {
+  transform: perspective(800px) rotateX(-40deg);
+  transform-origin: center top;
+}
+
+.aos-flip-up.aos-animate {
+  transform: perspective(800px) rotateX(0);
+}

@@ -1,0 +1,162 @@
+/* =========================================================
+   AOS — Feature bullet hover animations
+   ========================================================= */
+
+.apex-feature-bullet {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-dark);
+  font-weight: 500;
+  padding: 11px 16px;
+  margin: 0 -16px;
+  border-radius: 16px;
+  cursor: default;
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding-left 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 420ms ease;
+  will-change: transform;
+}
+
+.apex-feature-bullet-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgb(133 57 83 / 0.08);
+  color: var(--color-primary);
+  transition:
+    transform 460ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.apex-feature-bullet:hover {
+  background: rgb(255 255 255 / 0.72);
+  transform: translate3d(8px, -2px, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow:
+    0 14px 30px rgb(97 45 83 / 0.12),
+    0 4px 10px rgb(97 45 83 / 0.06);
+}
+
+.apex-feature-bullet:hover .apex-feature-bullet-icon {
+  transform: scale(1.22) rotate(-10deg);
+  background: var(--color-primary);
+  color: var(--color-background);
+  box-shadow: 0 10px 22px rgb(133 57 83 / 0.36);
+}
+
+/* ---------------------------------------------------------
+   BULLETS — RESPONSIVE
+   --------------------------------------------------------- */
+
+/* Tablet (≤ 900px) — centered content + tighter bullets */
+@media (max-width: 900px) {
+  .apex-feature-bullet {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    margin: 0 -14px;
+    border-radius: 14px;
+  }
+
+  .apex-feature-bullet-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .apex-feature-bullet-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .apex-feature-bullet:hover {
+    transform: translate3d(6px, -1px, 0);
+  }
+
+  .apex-feature-bullet:hover .apex-feature-bullet-icon {
+    transform: scale(1.18) rotate(-8deg);
+  }
+}
+
+/* Mobile (≤ 640px) */
+@media (max-width: 640px) {
+  .apex-feature-bullet {
+    padding: 9px 12px;
+    margin: 0 -12px;
+    border-radius: 12px;
+    font-size: 14px;
+    gap: var(--space-2);
+  }
+
+  .apex-feature-bullet-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .apex-feature-bullet-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .apex-feature-bullet:hover {
+    transform: translate3d(4px, 0, 0);
+    box-shadow:
+      0 8px 18px rgb(97 45 83 / 0.1),
+      0 3px 8px rgb(97 45 83 / 0.05);
+  }
+
+  .apex-feature-bullet:hover .apex-feature-bullet-icon {
+    transform: scale(1.16) rotate(-6deg);
+  }
+}
+
+/* Compact mobile (≤ 420px) */
+@media (max-width: 420px) {
+  .apex-feature-bullet {
+    padding: 8px 10px;
+    margin: 0 -10px;
+    font-size: 13px;
+  }
+
+  .apex-feature-bullet-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .apex-feature-bullet-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Large desktop (≥ 1440px) */
+@media (min-width: 1440px) {
+  .apex-feature-bullet {
+    padding: 13px 18px;
+    margin: 0 -18px;
+    border-radius: 18px;
+    font-size: 17px;
+    gap: var(--space-4);
+  }
+
+  .apex-feature-bullet-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .apex-feature-bullet-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
