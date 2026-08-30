@@ -2765,7 +2765,7 @@ p {
 .home-cta-card h2 {
   margin: 0;
 
-  color: #f3f4f4;
+  color: #ffffff;
 
   font-size: clamp(2rem, 4vw, 3.4rem);
 
@@ -2791,16 +2791,21 @@ p {
   flex-shrink: 0;
 }
 
-/* CTA outline override for dark background */
-
-.home-cta-actions .apex-button-outline {
-  color: #f3f4f4;
-  border-color: rgba(243, 244, 244, 0.5);
+/* Recruitment CTA buttons */
+.recruitment-cta-actions .apex-button-outline {
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  background: transparent !important;
 }
 
-.home-cta-actions .apex-button-outline:hover {
-  background: #f3f4f4;
-  color: #2c2c2c;
+.recruitment-cta-actions .apex-button-outline,
+.recruitment-cta-actions .apex-button-outline:visited {
+  color: #ffffff !important;
+}
+
+.recruitment-cta-actions .apex-button-outline:hover {
+  background: #ffffff !important;
+  color: #2c2c2c !important;
 }
 
 /* ---------------------------------------------------------
@@ -4196,5 +4201,262 @@ p {
 
   .activity-details-content {
     margin-top: 50px;
+  }
+}
+/* =========================================================
+   RECRUITMENT PORTAL
+   ========================================================= */
+
+.recruitment-page {
+  background: #ffffff;
+}
+
+.recruitment-section {
+  padding: 6rem 0;
+}
+
+.recruitment-section-alt {
+  background: #f3f4f4;
+}
+
+.recruitment-container {
+  width: min(1180px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.recruitment-section-heading {
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.recruitment-section-heading span {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #853953;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.recruitment-section-heading h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.recruitment-section-heading p {
+  max-width: 650px;
+  color: #612d53;
+  line-height: 1.8;
+}
+
+/* Why Join Apex */
+
+.recruitment-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.recruitment-benefit-card {
+  padding: 2rem;
+  border: 1px solid rgba(133, 57, 83, 0.2);
+  border-radius: 18px;
+  background: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.recruitment-benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(97, 45, 83, 0.12);
+}
+
+.recruitment-benefit-number {
+  display: block;
+  margin-bottom: 2rem;
+  color: #853953;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.recruitment-benefit-card h3 {
+  margin: 0 0 0.75rem;
+}
+
+.recruitment-benefit-card p {
+  margin: 0;
+  color: #612d53;
+  line-height: 1.7;
+}
+
+/* Who Can Apply */
+
+.recruitment-apply-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.recruitment-apply-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.recruitment-apply-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  border-left: 3px solid #853953;
+  background: #ffffff;
+}
+
+.recruitment-apply-item strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.recruitment-apply-item p {
+  margin: 0;
+  color: #612d53;
+  line-height: 1.6;
+}
+
+/* What Contributors Work On */
+
+.recruitment-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.recruitment-work-card {
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(133, 57, 83, 0.15);
+}
+
+.recruitment-work-card h3 {
+  margin: 0 0 0.6rem;
+}
+
+.recruitment-work-card p {
+  margin: 0;
+  color: #612d53;
+  line-height: 1.7;
+}
+
+/* Contribution Categories */
+
+.recruitment-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.recruitment-category {
+  padding: 1.5rem;
+  border: 1px solid #853953;
+  border-radius: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Final CTA */
+
+.recruitment-cta {
+  padding: 5rem 0;
+}
+
+.recruitment-cta-card {
+  padding: 4rem;
+  border-radius: 24px;
+  background: #612d53;
+  color: #ffffff;
+  text-align: center;
+}
+
+.recruitment-cta-card h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+   color: #ffffff;
+}
+
+.recruitment-cta-card p {
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.recruitment-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.recruitment-cta-actions .apex-button-outline {
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  background: transparent !important;
+}
+
+.recruitment-cta-actions .apex-button-outline:hover {
+  background: #ffffff !important;
+  color: #612d53 !important;
+}
+.recruitment-cta-actions .apex-button-primary {
+  background: #ffffff !important;
+  color: #612d53 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.recruitment-cta-actions .apex-button-primary:hover {
+  background: #612d53 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .recruitment-benefits-grid,
+  .recruitment-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recruitment-apply-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .recruitment-container {
+    width: min(100% - 2rem, 1180px);
+  }
+
+  .recruitment-section {
+    padding: 4rem 0;
+  }
+
+  .recruitment-benefits-grid,
+  .recruitment-work-grid,
+  .recruitment-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recruitment-cta-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .recruitment-cta-actions {
+    flex-direction: column;
+  }
+
+  .recruitment-cta-actions .apex-button {
+    width: 100%;
   }
 }
